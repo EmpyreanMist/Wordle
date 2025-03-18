@@ -1,13 +1,19 @@
 /* 
-1. Gör en funktion som tar emot 2 parametrar "guess" och "correctWord"
-2. Skapa en array som ska sedan ska innehålla objekt "feedback"
-3. Ta bort allt som inte är A-Z i guess och correctWord
-3. Kolla om "guess" och "correctWord" är 5 bokstäver annars returnera och ge feedback på att de behöver vara 5 karaktärer 
-4. Gör guess och correctWord till versaler
-5. Gör "guess" till array värden för varje bokstav
-6. Loopa igenom guess arrayen och jämför varja bokstav med correctWord beroende på skillanderna: pusha in i feedback ett av följande:
- " K / incorrect"
- " K / misplaced"
- " K / correct"
-7. Returnera feedBack
- */
+Gör en funktion som tar emot två parametrar "guess" och "correctWord".
+Skapa en array som ska innehålla objekt "feedback".
+Ta bort allt som inte är A-Z i "guess" och "correctWord" för att säkerställa att endast bokstäver används.
+Kolla om båda orden är exakt 5 bokstäver, annars returnera en felmeddelande att orden måste vara 5 bokstäver långa.
+Konvertera både "guess" och "correctWord" till versaler för att säkerställa att jämförelsen är skiftlägesokänslig.
+Skapa en array "correctLetters" från "correctWord" som håller reda på bokstäver och vilka som redan har matchats.
+Skapa en array "usedIndexes" som håller reda på vilka bokstäver i "correctWord" som redan har använts.
+Första loopen:
+Loopa igenom "guess" och jämför varje bokstav med motsvarande bokstav i "correctWord".
+Om bokstaven är på rätt plats, lägg till objektet { letter: bokstav, result: 'correct' } i "feedback".
+Markera att denna bokstav har använts i "correctWord" genom att lägga till dess index i "usedIndexes".
+Andra loopen:
+Loopa igenom "guess" igen.
+Om bokstaven redan markerats som "correct", hoppa över den.
+Om bokstaven finns i "correctWord" på en annan plats och den inte redan använts upp, markera den som "misplaced", annars "incorrect".
+Returnera "feedback"-arrayen med resultaten.
+*/
+
