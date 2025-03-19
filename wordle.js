@@ -56,9 +56,8 @@ export default function getWordleFeedback(guess, correctWord) {
     }
   });
 
-  console.log(feedback);
+
   return feedback;
 }
 
-
-console.log(getWordleFeedback('abcde', null));
+getWordleFeedback('abcde', 'abcde');
