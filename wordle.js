@@ -57,4 +57,4 @@ export default function getWordleFeedback(guess, correctWord) {
 }
 
 
-getWordleFeedback('abcef', 'abcde');
+console.log(getWordleFeedback('abce', 'abcde'));
