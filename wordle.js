@@ -17,7 +17,7 @@ Om bokstaven finns i "correctWord" på en annan plats och den inte redan använt
 Returnera "feedback"-arrayen med resultaten.
 */
 
-function getWordleFeedback(guess, correctWord) {
+export default function getWordleFeedback(guess, correctWord) {
 
   let feedback = [];
   const cleanGuess = guess.replace(/[^a-zA-Z]/g, '').toUpperCase();
@@ -26,7 +26,6 @@ function getWordleFeedback(guess, correctWord) {
   if(cleanGuess.length !== 5 || cleanCorrectWord.length !== 5) {
     return [{ error: 'The guess and correct word have to be exactly 5 characters long!' }];
   }
-
 
   const correctLetters = cleanCorrectWord.split('');
   const guessLetters = cleanGuess.split('');
@@ -43,7 +42,7 @@ function getWordleFeedback(guess, correctWord) {
 
   guessLetters.forEach((letter, index) => {
     if(feedback[index] === null) {
-      const foundIndex = correctLetters.findIndex((l, i) => 1 === letter && !usedIndexes.includes(i));
+      const foundIndex = correctLetters.findIndex((l, i) => l === letter && !usedIndexes.includes(i));
       if (foundIndex !== -1) {
         feedback[index] = { letter, result: 'misplaced' };
         usedIndexes.push(foundIndex);
@@ -52,15 +51,10 @@ function getWordleFeedback(guess, correctWord) {
       }
     }
   });
+
   console.log(feedback);
   return feedback;
-
-  console.log(cleanGuess);
-  console.log(cleanCorrectWord);
-  console.log(usedIndexes)
-  console.log(feedback);
-
 }
 
 
-getWordleFeedback('abcde', 'abefc');
+getWordleFeedback('abcef', 'abcde');
