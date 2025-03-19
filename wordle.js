@@ -19,6 +19,10 @@ Returnera "feedback"-arrayen med resultaten.
 
 export default function getWordleFeedback(guess, correctWord) {
 
+  if(guess === null || correctWord === null || correctWord === undefined || guess === undefined) {
+    return [{ error: 'The guess and correct word have to be exactly 5 characters long!' }];
+  }
+
   let feedback = [];
   const cleanGuess = guess.replace(/[^a-zA-Z]/g, '').toUpperCase();
   const cleanCorrectWord = correctWord.replace(/[^a-zA-Z]/g, '').toUpperCase();
@@ -57,4 +61,4 @@ export default function getWordleFeedback(guess, correctWord) {
 }
 
 
-console.log(getWordleFeedback('abce', 'abcde'));
+console.log(getWordleFeedback('abcde', null));
